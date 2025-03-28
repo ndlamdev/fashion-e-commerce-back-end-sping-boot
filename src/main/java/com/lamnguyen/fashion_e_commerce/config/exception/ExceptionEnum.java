@@ -18,13 +18,20 @@ import org.springframework.http.HttpStatus;
 public enum ExceptionEnum {
     USER_EXIST(HttpStatus.CONFLICT.value(), "User is exist!"),
     USER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "User not found!"),
+    NOT_ACTIVE(9012, "User not active!"),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED.value(), "Unauthorized"),
     CODE_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Code not found or expired"),
     VERIFY_EXCEEDED_NUMBER(HttpStatus.NOT_ACCEPTABLE.value(), "Exceeded number of authentication attempts"),
     VERIFY_ACCOUNT_FAILED(HttpStatus.FAILED_DEPENDENCY.value(), "Verify account failed"),
     LOGOUT_FAILED(HttpStatus.UNAUTHORIZED.value(), "Logout failed"),
     VERIFICATION_CODE_SENT(HttpStatus.CONFLICT.value(), "Code has been sent!"),
-    ACTIVATED(HttpStatus.FORBIDDEN.value(), "Account is active!");
+    ACTIVATED(HttpStatus.FORBIDDEN.value(), "Account is active!"),
+    ROLE_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Role not found!"),
+    ROLE_EXIST(HttpStatus.CONFLICT.value(), "Role is exist!"),
+    TOKEN_NOT_VALID(HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS.value(), "Token not valid"),
+    ADMIN_CAN_REMOVE_ROLE_MYSELF(HttpStatus.UNAUTHORIZED.value(), "Admin can not remove any role for myself!"),
+    ADMIN_CAN_ADD_ROLE_FOR_MYSELF(HttpStatus.UNAUTHORIZED.value(), "Admin can not remove any role for myself!"),
+    ;
 
     int code;
     String message;
